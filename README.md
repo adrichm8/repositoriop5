@@ -1,6 +1,6 @@
 # repositoriop5
 
-Configura un contenedor coa imaxe oficial de bind9 usando docker-compose.
+### Configura un contenedor coa imaxe oficial de bind9 usando docker-compose.
 
 En el archivo docker-compose.yml configuramos  el  contenedor de BIND9 para que  funcione como un servidor DNS
 
@@ -25,5 +25,5 @@ services:
 
 
 
-Explicación opciones:
+### Explicación opciones:
 El apartado version indica la version del docker compose que es la  versión 3, services se define como los  servicios que se van a ejecutar en los contenedores, bind9 es el nombre del servicio que estoy creando, container_name: bind9-adri  se le añade este nombre al contenedor, ports  se emplea para definir los puertos para que el contenedor sea accesible desde afuera, restart sirve para que se reinicie automaticamente en caso de que falle  el contenedor y los volumes que permiten montar directorios o archivos del host en el contenedor para crear los volumes hice un mkdir,  
