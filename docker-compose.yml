@@ -1,0 +1,16 @@
+
+version: '3'
+services:
+  bind9:
+    image: internetsystemsconsortium/bind9:9.18
+    container_name: bind9-adri
+    ports:
+      - 54:53/tcp
+      - 54:53/udp
+      - 127.0.0.1:953:953/tcp
+    restart: always
+    volumes:
+     - ./etc_bind:/etc/bind
+     - ./cache_bind:/var/cache/bind
+     - ./lib_bind:/var/lib/bind
+     - ./log_bind:/var/log
