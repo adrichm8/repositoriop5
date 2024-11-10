@@ -1,9 +1,12 @@
 # repositoriop5
 
 ### Configura un contenedor coa imaxe oficial de bind9 usando docker-compose.
+Para ordenar todo y tener todo organizado crearé una carpeta para introducir todo  mkdir p5docker_compose
 
 En el archivo docker-compose.yml configuramos  el  contenedor de BIND9 para que  funcione como un servidor DNS
+Habrá dos directorios principales que serviran como volumenes que podemos crear con el comando mkdir -p ./etc/bind ./var/cache/bind
 
+Posteriormente para que bind9 tenga los permisos necesarios para funcionar dentro dun contenedor de Docker se hará el comando sudo chown -R 100:100 ./etc/bind/ ./var/cache/bind 
 ```yaml
 version: '3'
 services:
