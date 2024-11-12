@@ -9,20 +9,26 @@ Habrá dos directorios principales que serviran como volumenes que podemos crear
 Posteriormente para que bind9 tenga los permisos necesarios para funcionar dentro dun contenedor de Docker se hará el comando sudo chown -R 100:100 ./etc/bind/ ./var/cache/bind 
 ```yaml
 version: '3'
+
 services:
   bind9:
     image: internetsystemsconsortium/bind9:9.18
     container_name: bind9-adri
     ports:
-      - 54:53/tcp
-      - 54:53/udp
-      - 127.0.0.1:953:953/tcp
-    restart: always
+      - "54:53/tcp"
+      - "54:53/udp"
+      - "127.0.0.1:953:953/tcp"
     volumes:
-     - ./etc_bind:/etc/bind
-     - ./cache_bind:/var/cache/bind
-     - ./lib_bind:/var/lib/bind
-     - ./log_bind:/var/log
+      - bind_config:/etc/bind
+      - bind_cache:/var/cache/bind
+      - bind_lib:/var/lib/bind
+    restart: unless-stopped
+
+volumes:
+  bind_config:
+  bind_cache:
+  bind_lib:
+
  ```
 
 
